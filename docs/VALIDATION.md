@@ -16,9 +16,11 @@
 
 原生网络集成测试使用临时 loopback Bridge 与 FakeAdapter，不调用模型，也不读取真实 Windows Token。它不能替代 iPhone → Tailscale → Windows → Codex 的真机验收。
 
-真机为 USB 配对的 iPhone 13 Pro，iOS 26.3。用户已在 Xcode 添加 Apple 账户、在手机开启开发者模式并重启。初次因 `Developer Mode disabled` 失败后，重新进行真机构建、自动签名和安装，均成功；描述文件确认包含此 iPhone。首次启动被 iOS 安全检查拒绝，尚待用户在「通用 → VPN 与设备管理」信任自己的开发签名。
+真机为 USB 配对的 iPhone 13 Pro，iOS 26.3。用户已在 Xcode 添加 Apple 账户、在手机开启开发者模式并重启。初次因 `Developer Mode disabled` 失败后，重新进行真机构建、自动签名和安装，均成功；描述文件确认包含此 iPhone。用户在「通用 → VPN 与设备管理」信任开发签名后，`devicectl` 确认 App 成功启动。
 
-App 成功启动后，还需用户在手机安全输入框中输入 Windows Token，再验证完整跨设备链路。个人 Team、签名产物和描述文件仅保存在忽略的本地文件，未写入提交。Token 不应进入聊天、URL、日志或 Git。
+真机联网发现 ATS 阻止 HTTP IP 地址：`NSAllowsLocalNetworking` 单独使用不足。补充 `100.64.0.0/10` 的显式 HTTP 例外，重新签名、覆盖安装并重启 App 后，手机上 Windows 显示绿色在线，项目 `dots-lite` 和可用 Agent `codex` 加载成功。更新保留了设备配置与 Keychain。安装包检查增加 ATS 范围验证，旧产物检查失败，新产物通过。
+
+尚未从真实 iPhone 完成 Codex 模型任务；任务执行、实时输出、取消与续接的真机验收仍待进行。当前手机与 Windows 的认证与读取项目/Agent 已验证，不等于完整模型执行链路已验证。个人 Team、签名产物和描述文件仅保存在忽略的本地文件，未写入提交。Token 不应进入聊天、URL、日志或 Git。
 
 待真机检查：错误 Token、创建任务与增量日志、断网恢复、切后台恢复、取消、续接、Bridge 重启隔离，以及 POST 结果未知时核对任务列表再重试。
 

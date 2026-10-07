@@ -8,6 +8,8 @@ SwiftUI iOS 16+ 客户端用于控制 Tailscale 网络中的 Windows Bridge。�
 
 首次打开时进入“设备”，添加 Windows Bridge。地址输入框会以 `http://100.x.x.x:8765` 作为提示，名称和地址都可编辑；Token 必须手工输入，保存到 ThisDeviceOnly Keychain。手机和 Windows 必须加入同一 Tailscale 网络，首次访问需允许系统本地网络权限。
 
+iOS 17+ 直接访问 HTTP IP 地址还需要 ATS 例外，仅设置 `NSAllowsLocalNetworking` 不够。App 的 `NSExceptionDomains` 为 Tailscale IPv4 网段 `100.64.0.0/10` 显式允许 HTTP，没有启用全局 `NSAllowsArbitraryLoads`。规则依据 [Apple 的 ATS IP 地址说明](https://developer.apple.com/documentation/bundleresources/information-property-list/nsapptransportsecurity/nsallowslocalnetworking)；安装包检查会验证此配置。其他 HTTP 地址不在这项例外范围内。
+
 任务页会读取 Bridge 返回的项目和 Agent 白名单，支持分页加载全部任务、按 conversation 分组、创建、取消和继续会话。输出通过 WebSocket 实时接收，按每个设备、实例和任务保存 seq；断线会限次退避重连，gap 会提示并用 REST 快照刷新。进入后台会关闭连接，回到前台会刷新设备状态和任务。POST 超时或传输失败会提示提交结果未知并刷新列表，不自动重发。
 
 ## 构建与验收

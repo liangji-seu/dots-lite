@@ -1,0 +1,230 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		171717171717171717171717 /* DotsLiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121212121212121212121212 /* DotsLiteApp.swift */; };
+		181818181818181818181818 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131313131313131313131313 /* AppState.swift */; };
+		191919191919191919191919 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141414141414141414141414 /* Models.swift */; };
+		202020202020202020202020 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151515151515151515151515 /* KeychainStore.swift */; };
+		FFFFFFFFFFFFFFFFFFFFFFFF /* DotsCore in Frameworks */ = {isa = PBXBuildFile; productRef = BBBBBBBBBBBBBBBBBBBBBBBB /* DotsCore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		121212121212121212121212 /* DotsLiteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsLiteApp.swift; sourceTree = "<group>"; };
+		131313131313131313131313 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		141414141414141414141414 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		151515151515151515151515 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		161616161616161616161616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCCCCCCCCCCCCCCCCCCCCCCC /* DotsLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotsLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		999999999999999999999999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFFFFFFFFFFFFFFFFFFFFFFF /* DotsCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		444444444444444444444444 = {
+			isa = PBXGroup;
+			children = (
+				DDDDDDDDDDDDDDDDDDDDDDDD /* DotsLite */,
+				EEEEEEEEEEEEEEEEEEEEEEEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDDDDDDDDDDDDDDDDDDDDDDD /* DotsLite */ = {
+			isa = PBXGroup;
+			children = (
+				121212121212121212121212 /* DotsLiteApp.swift */,
+				131313131313131313131313 /* AppState.swift */,
+				141414141414141414141414 /* Models.swift */,
+				151515151515151515151515 /* KeychainStore.swift */,
+				161616161616161616161616 /* Info.plist */,
+			);
+			path = DotsLite;
+			sourceTree = "<group>";
+		};
+		EEEEEEEEEEEEEEEEEEEEEEEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCCCCCCCCCCCCCCCCCCCCCCC /* DotsLite.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		222222222222222222222222 /* DotsLite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 777777777777777777777777 /* Build configuration list for PBXNativeTarget "DotsLite" */;
+			buildPhases = (
+				888888888888888888888888 /* Sources */,
+				999999999999999999999999 /* Frameworks */,
+				AAAAAAAAAAAAAAAAAAAAAAAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DotsLite;
+			packageProductDependencies = (
+				BBBBBBBBBBBBBBBBBBBBBBBB /* DotsCore */,
+			);
+			productName = DotsLite;
+			productReference = CCCCCCCCCCCCCCCCCCCCCCCC /* DotsLite.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		111111111111111111111111 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					222222222222222222222222 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 333333333333333333333333 /* Build configuration list for PBXProject "DotsLite" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 444444444444444444444444;
+			packageReferences = (
+				555555555555555555555555 /* XCLocalSwiftPackageReference "DotsCore" */,
+			);
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				222222222222222222222222 /* DotsLite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAAAAAAAAAAAAAAAAAAAAAAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		888888888888888888888888 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				171717171717171717171717 /* DotsLiteApp.swift in Sources */,
+				181818181818181818181818 /* AppState.swift in Sources */,
+				191919191919191919191919 /* Models.swift in Sources */,
+				202020202020202020202020 /* KeychainStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		343434343434343434343434 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		353535353535353535353535 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		363636363636363636363636 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = DotsLite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liangji.dotslite;
+				PRODUCT_NAME = DotsLite;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		373737373737373737373737 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = DotsLite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liangji.dotslite;
+				PRODUCT_NAME = DotsLite;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		333333333333333333333333 /* Build configuration list for PBXProject "DotsLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				343434343434343434343434 /* Debug */,
+				353535353535353535353535 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		777777777777777777777777 /* Build configuration list for PBXNativeTarget "DotsLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				363636363636363636363636 /* Debug */,
+				373737373737373737373737 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		555555555555555555555555 /* XCLocalSwiftPackageReference "DotsCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = DotsCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BBBBBBBBBBBBBBBBBBBBBBBB /* DotsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 555555555555555555555555 /* XCLocalSwiftPackageReference "DotsCore" */;
+			productName = DotsCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 111111111111111111111111 /* Project object */;
+}

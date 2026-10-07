@@ -13,3 +13,18 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m pytest -q
+      - name: Test native client protocol and replay
+        if: runner.os == 'macOS'
+        run: swift test --package-path ios/DotsCore
+      - name: Exercise native HTTP and WebSocket against a fixture Bridge
+        if: runner.os == 'macOS'
+        run: python scripts/smoke_iphone_client.py
+      - name: Build iPhone app without signing
+        if: runner.os == 'macOS'
+        run: >-
+          xcodebuild -project ios/DotsLite.xcodeproj -scheme DotsLite
+          -sdk iphonesimulator -destination 'generic/platform=iOS Simulator'
+          -derivedDataPath .local/DerivedData CODE_SIGNING_ALLOWED=NO build
+      - name: Validate install-critical application metadata
+        if: runner.os == 'macOS'
+        run: python scripts/verify_iphone_bundle.py .local/DerivedData/Build/Products/Debug-iphonesimulator/DotsLite.app

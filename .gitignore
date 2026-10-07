@@ -9,3 +9,8 @@ config/projects.json
 .local/
 *.log
 .DS_Store
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate

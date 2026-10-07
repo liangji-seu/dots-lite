@@ -1,4 +1,24 @@
-# Windows 验收记录
+# 验收记录
+
+## iPhone 客户端开发验证（2026-10-07，Mac）
+
+当前范围为 iPhone 原生 App 经 Tailscale 控制已有 Windows Bridge；Mac 仅用于开发与编译，没有启动 Mac 执行端。
+
+| 检查 | 实际结果 |
+| --- | --- |
+| Python Bridge 回归 `./.venv/bin/python -m pytest -q` | 15 passed；一条依赖弃用提示 |
+| `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer swift test --package-path ios/DotsCore` | 执行 6 项 XCTest，0 failures；不是 0 tests 的语法检查 |
+| `./.venv/bin/python scripts/smoke_iphone_client.py` | Swift 原生 HTTP/WS 客户端完成创建、实时输出、回放、REST 快照、续接会话、取消、错误 Token 验证 |
+| Xcode 27.0 / iPhone Simulator SDK 27.0，无签名 generic simulator build | BUILD SUCCEEDED；最低 iOS 16.0；应用必需元数据检查通过 |
+| Mac 经 Tailscale 请求 Windows `/healthz` | 200；未带 Token 请求 `/api/device` 为 401 |
+
+原生网络集成测试使用临时 loopback Bridge 与 FakeAdapter，不调用模型，也不读取真实 Windows Token。它不能替代 iPhone → Tailscale → Windows → Codex 的真机验收。
+
+已识别 USB 配对的 iPhone 13 Pro，iOS 26.3，用户已在 Xcode 添加 Apple 账户。指定该真机执行构建，Xcode 返回 `Developer Mode disabled`，未进入真机签名或安装阶段。仍需用户在手机开启开发者模式并重启确认，再完成自动签名和安装，在手机的安全输入框中输入 Windows Token。个人 Team 仅保存在忽略的本地文件，未写入提交。Token 不应进入聊天、URL、日志或 Git。
+
+待真机检查：错误 Token、创建任务与增量日志、断网恢复、切后台恢复、取消、续接、Bridge 重启隔离，以及 POST 结果未知时核对任务列表再重试。
+
+## Windows 验收记录
 
 日期：2026-10-07（Asia/Shanghai）。本机 Windows，Python 3.14.6，Codex CLI 0.160.0，使用已登录 ChatGPT 账户。
 

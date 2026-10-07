@@ -32,10 +32,10 @@ Token 是整台 Bridge 的权限凭据，不是多用户权限系统。所有 AP
 
 ## 5. 后续演进顺序
 
-1. Mac 复用 Python Bridge，验证平台进程生命周期和本机 CLI。
-2. SwiftUI iPhone 客户端，Keychain 保存设备 Token，URLSession 执行 HTTP / WebSocket。
+1. SwiftUI iPhone 客户端，Keychain 保存设备 Token，URLSession 执行 HTTP / WebSocket；先验证 iPhone 控制已有 Windows Bridge。
+2. Mac 复用 Python Bridge，验证平台进程生命周期和本机 CLI（本阶段暂不实现）。
 3. SQLite 持久化、任务提交幂等键、模型预算、按项目并发与审批。
 4. 添加 Claude Code / DeepSeek 适配器，通过相同契约测试。
 5. 只有确实需要公网接入时才引入设备出站连接 Relay、设备配对和端到端认证。
 
-不在本次范围：远程桌面、屏幕共享、自动同步 Git 工作区、Mac/iPhone UI 实现。
+不在本阶段范围：Mac 执行端、远程桌面、屏幕共享、自动同步 Git 工作区。

@@ -1,5 +1,7 @@
 # Mac / iPhone 开发交接
 
+> 当前阶段范围已由用户收窄：只实现并验证 iPhone 原生 App 控制已有 Windows Bridge/Codex。Mac 仅用于开发和编译，Mac 执行端暂不实现。下文保留 Windows 首版交接背景；当前客户端安装步骤见 `ios/README.md`，实测状态见 `docs/VALIDATION.md`。
+
 ## 目标与已有成果
 
 仓库：`https://github.com/liangji-seu/dots-lite`，主分支 `main`。Windows 阶段实现通用任务 Bridge 和 Codex 适配器；并未创建 Xcode 工程。先阅读 README、ARCHITECTURE、API 与 VALIDATION，再开发客户端。`docs/openapi.json` 是 REST 契约，WebSocket 契约在 API.md 中单独定义。

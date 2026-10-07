@@ -1,6 +1,6 @@
 # dots-lite
 
-用 iPhone 调度多台个人电脑上的编程 Agent。当前交付 Windows Bridge：HTTP 下发任务、WebSocket 回放及实时输出、取消和继续会话。客户端和服务端之间使用独立于厂商的协议；首个适配器是本机 Codex CLI。
+用 iPhone 调度个人电脑上的编程 Agent。Windows Bridge 支持 HTTP 下发任务、WebSocket 回放及实时输出、取消和继续会话。仓库包含原生 SwiftUI iPhone 客户端及可独立测试的 Swift 协议核心；真机验证进度见验收记录。客户端和服务端之间使用独立于厂商的协议；首个适配器是本机 Codex CLI。
 
 ## 架构
 
@@ -11,6 +11,21 @@ iPhone / Mac 客户端（维护多台设备地址、各自 Token）
 ```
 
 每台设备独立认证、独立项目白名单、独立队列。没有中心服务器、跨设备任务迁移或公网 Relay。任务 ID 必须与 device.id 一起使用。详见 [架构决策](docs/ARCHITECTURE.md) 和 [Mac / iPhone 交接](docs/HANDOFF.md)。
+
+## iPhone 客户端
+
+[安装与真机验收步骤](ios/README.md)。本阶段聚焦 iPhone 通过 Tailscale 控制已有 Windows Bridge；Mac 作为开发机，不启动 Mac Bridge。
+
+客户端支持本地管理设备、Keychain 保存 Token、白名单项目和 Agent 选择、会话任务列表、提交、输出、取消和续接。网络中断不会取消电脑任务；前台恢复会刷新状态并按事件序号回放，日志截断时明确提示并改用 REST 快照。提交结果不确定时需先核对任务列表，客户端不自动重发。
+
+离线验证不会调用真实模型：
+
+```sh
+swift test --package-path ios/DotsCore
+python scripts/smoke_iphone_client.py
+```
+
+第二条命令需要上面的 Python 3.11+ 开发环境和依赖，运行原生 URLSession 客户端连接临时 Bridge 测试执行器。它验证协议链路，不代表 iPhone 真机或 Windows 真实 Codex 任务已经验收。
 
 ## Windows 安装与启动
 
@@ -92,7 +107,7 @@ WebSocket 测试工具自动读取 `.env`，不打印 Token：
 - 单进程、单 worker，不要使用 uvicorn 多 worker 或开发热重载处理真实任务。
 - 内存任务在服务重启后丢失；输出与事件有界，过旧输出会截断，客户端必须处理 gap。
 - 默认最多保留 100 个任务，满后返回 503；可本机调整容量，或在保存需要的结果后重启清空。
-- 本版无手机 UI、设备自动发现、推送通知、附件上传、交互审批 UI、自动开机服务。
+- 本版无设备自动发现、推送通知、附件上传、交互审批 UI、自动开机服务；手机 App 的安装签名和真机验证仍需完整 Xcode。
 - Codex 不保证逐 token 输出；Bridge 在 CLI 提供数据时立即转发。
 - 续接仅针对本 Bridge 创建且仍保留的任务，不读取或控制桌面 App 中任意既有聊天。
 - 只实现 Codex 适配器；Claude Code / DeepSeek 为扩展边界，未宣称已支持。
